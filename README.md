@@ -1,4 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# About
+Fork of [Ant.X.Design.AI] (https://github.com/ant-design/x) Template Scaffold and AI components for chat agents, designed for enterprise use.
+This is a non production project - the intended use is rapid prototyping only.
+
+Tech Stack:
+ [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).  Other:  Tailwind CSS, Ant Design Components
+
+Design template:  Use Figma UI file components and pages designed for this template (coming soon here)
+
+Design to Code:   Generate React JS/TS code from Figma file using [Anima-AI-plugin-for-Visual-Studio] (https://marketplace.visualstudio.com/items?itemName=AnimaApp.vscode-anima)
+
+Theme switching: Switch themes using a central Tailwind CSS file with json design tokens from Figma
 
 ## Getting Started
 
@@ -6,10 +17,7 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
