@@ -1,0 +1,46 @@
+// Main SASS file for static HTML pages
+// Imports all partials and contains global styles
+
+// Import variables and mixins
+@import 'variables';
+@import 'mixins';
+
+// Root variables (will be compiled to CSS variables)
+:root {
+  --header-bg: #{$header-bg};
+  --footer-bg: #{$footer-bg};
+  --heading-color: #{$heading-color};
+}
+
+// Layout styles
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: var(--header-bg);
+  padding: $spacing-base;
+  box-shadow: $shadow-sm;
+}
+
+.navigation {
+  @include container-max-width;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main {
+  flex: 1;
+  @include container-max-width;
+  width: 100%;
+  padding: $spacing-lg;
+}
+
+.footer {
+  background-color: var(--footer-bg);
+  padding: $spacing-lg;
+  margin-top: auto;
+}

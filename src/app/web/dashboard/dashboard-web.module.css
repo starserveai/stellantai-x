@@ -1,0 +1,47 @@
+/**
+ * 5W Documentation Block for Web Dashboard CSS Module
+ * ==========================================
+ * 
+ * WHAT:
+ * - CSS module for web dashboard component styling
+ * - Defines responsive layout structure for desktop dashboard view
+ * - Implements desktop-optimized spacing and typography
+ * - Provides consistent styling for dashboard elements on large screens
+ * 
+ * WHY:
+ * - Ensures optimal dashboard presentation on desktop devices
+ * - Maintains readability and usability on larger screens
+ * - Provides consistent spacing and typography for desktop users
+ * - Separates desktop-specific dashboard styles from mobile and tablet views
+ * 
+ * HOW:
+ * - Uses CSS Flexbox for responsive layout
+ * - Implements desktop-optimized padding and margins
+ * - Sets appropriate font sizes for desktop viewing
+ * - Uses CSS variables for consistent theming
+ * 
+ * WHO:
+ * - Used by web dashboard component
+ * - Referenced by desktop version of the dashboard
+ * - Maintained by frontend developers
+ * 
+ * WHEN:
+ * - Applied when dashboard is viewed on desktop devices
+ * - Active during desktop viewport breakpoints (≥1024px)
+ * - Loaded with the web dashboard component
+ */
+
+.dashboardContainer {
+  padding: 24px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboardContainer h1 {
+  margin-bottom: 24px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--heading-color);
+}

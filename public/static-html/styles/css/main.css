@@ -1,0 +1,60 @@
+/**
+ * Main CSS file for static HTML pages
+ * Contains core styles and shared components
+ */
+
+:root {
+  --header-bg: #ffffff;
+  --footer-bg: #f8f9fa;
+  --heading-color: #2c3e50;
+}
+
+/* Layout styles */
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: var(--header-bg);
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navigation {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 2rem;
+}
+
+.footer {
+  background-color: var(--footer-bg);
+  padding: 2rem;
+  margin-top: auto;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navigation {
+    max-width: 768px;
+  }
+  
+  .main {
+    padding: 1rem;
+  }
+  
+  .footer {
+    padding: 1rem;
+  }
+}

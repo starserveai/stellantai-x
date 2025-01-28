@@ -1,0 +1,47 @@
+/**
+ * 5W Documentation Block for Mobile Dashboard CSS Module
+ * ==========================================
+ * 
+ * WHAT:
+ * - CSS module for mobile dashboard component styling
+ * - Defines responsive layout structure for mobile dashboard view
+ * - Implements mobile-optimized spacing and typography
+ * - Provides consistent styling for dashboard elements on small screens
+ * 
+ * WHY:
+ * - Ensures optimal dashboard presentation on mobile devices
+ * - Maintains readability and usability on smaller screens
+ * - Provides consistent spacing and typography for mobile users
+ * - Separates mobile-specific dashboard styles from tablet and desktop views
+ * 
+ * HOW:
+ * - Uses CSS Flexbox for responsive layout
+ * - Implements mobile-optimized padding and margins
+ * - Sets appropriate font sizes for mobile viewing
+ * - Uses CSS variables for consistent theming
+ * 
+ * WHO:
+ * - Used by mobile dashboard component
+ * - Referenced by mobile version of the dashboard
+ * - Maintained by frontend developers
+ * 
+ * WHEN:
+ * - Applied when dashboard is viewed on mobile devices
+ * - Active during mobile viewport breakpoints (<768px)
+ * - Loaded with the mobile dashboard component
+ */
+
+.dashboardContainer {
+  padding: 16px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboardContainer h1 {
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--heading-color);
+}

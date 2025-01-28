@@ -1,0 +1,43 @@
+// SASS Mixins
+// Contains reusable style patterns and utilities
+
+// Container max-width mixin
+@mixin container-max-width {
+  max-width: $desktop-width;
+  margin: 0 auto;
+
+  @media (max-width: $tablet-width) {
+    max-width: $tablet-width;
+  }
+
+  @media (max-width: $mobile-width) {
+    max-width: $mobile-width;
+  }
+}
+
+// Flexbox center mixin
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Typography mixins
+@mixin heading-style {
+  color: var(--heading-color);
+  font-weight: $font-weight-bold;
+  line-height: $line-height-base;
+}
+
+// Responsive padding mixin
+@mixin responsive-padding {
+  padding: $spacing-lg;
+
+  @media (max-width: $tablet-width) {
+    padding: $spacing-md;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding: $spacing-base;
+  }
+}

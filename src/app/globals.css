@@ -1,27 +1,75 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/**
+ * 5W Documentation Block for Global CSS
+ * ==========================================
+ * 
+ * WHAT:
+ * - Global CSS configuration for the entire application
+ * - Defines root variables and base styling rules
+ * - Implements theme support with light/dark mode
+ * - Sets core typography and layout defaults
+ * - Provides consistent styling across all components
+ * 
+ * WHY:
+ * - Ensures consistent styling across the application
+ * - Establishes design system fundamentals
+ * - Provides theme configuration and customization
+ * - Maintains responsive design principles
+ * 
+ * HOW:
+ * - Uses CSS variables for theme configuration
+ * - Implements CSS reset and normalization
+ * - Provides responsive typography system
+ * - Uses data-theme attribute for theme switching
+ * 
+ * WHO:
+ * - Used by all components in the application
+ * - Referenced by developers for styling guidelines
+ * - Maintained by frontend development team
+ * 
+ * WHEN:
+ * - Applied globally across all pages and components
+ * - Active during entire application lifecycle
+ * - Used for theme switching and style customization
+ */
+
+/* Global styles */
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --max-width: 1100px;
+  --border-radius: 12px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Theme variables */
+:root {
+  --foreground: #1F1F1F;
+  --background: #FFFFFF;
+}
+
+[data-theme='dark'] {
+  --foreground: #E5E5E5;
+  --background: #121212;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--foreground);
+  background: var(--background);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }

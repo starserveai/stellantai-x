@@ -1,0 +1,66 @@
+/**
+ * 5W Documentation Block for MobileMainLayout CSS Module
+ * ==========================================
+ * 
+ * WHAT:
+ * - CSS module for mobile-specific layout styling
+ * - Defines responsive layout structure for mobile viewports
+ * - Implements flexible container system with header, main, and footer
+ * - Sets maximum widths and spacing optimized for mobile screens
+ * 
+ * WHY:
+ * - Ensures consistent layout presentation on mobile devices
+ * - Provides optimal spacing and dimensions for small screens
+ * - Maintains responsive behavior within mobile constraints
+ * - Separates mobile-specific styles from desktop and tablet layouts
+ * 
+ * HOW:
+ * - Uses CSS Flexbox for layout structure
+ * - Implements CSS variables for theme consistency
+ * - Sets mobile-optimized max-widths (768px)
+ * - Applies appropriate padding and margins for mobile viewing
+ * 
+ * WHO:
+ * - Used by MobileMainLayout component for mobile layouts
+ * - Referenced by the mobile version of the application
+ * - Maintained by frontend developers
+ * 
+ * WHEN:
+ * - Applied when the application is viewed on mobile devices
+ * - Active during mobile viewport breakpoints (<768px)
+ * - Loaded with the MobileMainLayout component
+ */
+
+.layoutContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: var(--header-bg);
+  padding: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navigation {
+  max-width: 768px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main {
+  flex: 1;
+  max-width: 768px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 1rem;
+}
+
+.footer {
+  background-color: var(--footer-bg);
+  padding: 1rem;
+  margin-top: auto;
+}

@@ -1,0 +1,88 @@
+/**
+ * 5W Documentation Block for Web Dashboard Styles
+ * ==========================================
+ * 
+ * WHAT:
+ * - CSS module for web dashboard styling
+ * - Defines responsive card and grid layouts
+ * - Implements desktop-optimized spacing and shadows
+ * - Provides consistent styling for dashboard components
+ * 
+ * WHY:
+ * - Ensures consistent visual presentation on desktop devices
+ * - Maintains proper spacing and hierarchy for large screens
+ * - Provides smooth transitions and hover effects
+ * - Separates desktop-specific styles for better maintenance
+ * 
+ * HOW:
+ * - Uses CSS composition for shared styles
+ * - Implements desktop-optimized padding and margins
+ * - Sets appropriate shadows and transitions
+ * - Provides consistent spacing for desktop viewing
+ * 
+ * WHO:
+ * - Used by web dashboard components
+ * - Referenced by desktop-specific dashboard pages
+ * - Maintained by frontend developers
+ * 
+ * WHEN:
+ * - Applied when dashboard is viewed on desktop devices
+ * - Active during desktop viewport breakpoints
+ * - Loaded with web dashboard components
+ */
+
+.card {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease-in-out;
+  border-radius: 8px;
+}
+
+.card:hover {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.breadcrumb {
+  padding: 16px 24px;
+  margin-bottom: 24px;
+  background-color: #F8F9FF;
+  border-radius: 8px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.breadcrumb a {
+  color: #1890ff;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: #40a9ff;
+}
+
+.statsCard {
+  composes: card;
+  padding: 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.statsCard :global(.ant-typography) {
+  margin-bottom: 8px;
+}
+
+.statsCard :global(.ant-typography):last-child {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.chartCard {
+  composes: card;
+  padding: 24px;
+  height: 100%;
+}
+
+.tableCard {
+  composes: card;
+  padding: 0;
+  overflow: hidden;
+}

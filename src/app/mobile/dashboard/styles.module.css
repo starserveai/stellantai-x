@@ -1,0 +1,72 @@
+/**
+ * 5W Documentation Block for Mobile Dashboard Styles
+ * ==========================================
+ * 
+ * WHAT:
+ * - CSS module for mobile dashboard styling
+ * - Defines responsive card and grid layouts
+ * - Implements mobile-optimized spacing and shadows
+ * - Provides consistent styling for dashboard components
+ * 
+ * WHY:
+ * - Ensures consistent visual presentation on mobile devices
+ * - Maintains proper spacing and hierarchy for small screens
+ * - Provides smooth transitions and hover effects
+ * - Separates mobile-specific styles for better maintenance
+ * 
+ * HOW:
+ * - Uses CSS Grid for responsive layouts
+ * - Implements CSS composition for shared styles
+ * - Sets mobile-optimized spacing and shadows
+ * - Provides responsive breakpoints for smaller screens
+ * 
+ * WHO:
+ * - Used by mobile dashboard components
+ * - Referenced by mobile-specific dashboard pages
+ * - Maintained by frontend developers
+ * 
+ * WHEN:
+ * - Applied when dashboard is viewed on mobile devices
+ * - Active during mobile viewport breakpoints
+ * - Loaded with mobile dashboard components
+ */
+
+.card {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease-in-out;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.card:hover {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.statsCard {
+  composes: card;
+  padding: 16px;
+}
+
+.chartCard {
+  composes: card;
+  padding: 16px;
+}
+
+.listCard {
+  composes: card;
+  padding: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}

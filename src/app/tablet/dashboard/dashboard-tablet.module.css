@@ -1,0 +1,47 @@
+/**
+ * 5W Documentation Block for Tablet Dashboard CSS Module
+ * ==========================================
+ * 
+ * WHAT:
+ * - CSS module for tablet dashboard component styling
+ * - Defines responsive layout structure for tablet dashboard view
+ * - Implements tablet-optimized spacing and typography
+ * - Provides consistent styling for dashboard elements on medium screens
+ * 
+ * WHY:
+ * - Ensures optimal dashboard presentation on tablet devices
+ * - Maintains readability and usability on medium-sized screens
+ * - Provides consistent spacing and typography for tablet users
+ * - Separates tablet-specific dashboard styles from mobile and desktop views
+ * 
+ * HOW:
+ * - Uses CSS Flexbox for responsive layout
+ * - Implements tablet-optimized padding and margins
+ * - Sets appropriate font sizes for tablet viewing
+ * - Uses CSS variables for consistent theming
+ * 
+ * WHO:
+ * - Used by tablet dashboard component
+ * - Referenced by tablet version of the dashboard
+ * - Maintained by frontend developers
+ * 
+ * WHEN:
+ * - Applied when dashboard is viewed on tablet devices
+ * - Active during tablet viewport breakpoints (768px-1024px)
+ * - Loaded with the tablet dashboard component
+ */
+
+.dashboardContainer {
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboardContainer h1 {
+  margin-bottom: 20px;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--heading-color);
+}

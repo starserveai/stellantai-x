@@ -1,7 +1,43 @@
 'use client';
 
+/**
+ * 5W Documentation Block for MainLayout Component
+ * ==========================================
+ * 
+ * WHAT:
+ * - Desktop-specific layout component for the application
+ * - Provides a responsive interface optimized for larger screens
+ * - Implements a collapsible sidebar and fixed header
+ * - Part of the device-specific layout system referenced by app/layout.tsx
+ * - Integrates with global styling through MainLayout.module.css
+ * 
+ * WHY:
+ * - Ensures optimal user experience on desktop devices
+ * - Provides efficient navigation and workspace organization
+ * - Maintains consistent branding while utilizing larger screen real estate
+ * - Enables quick access to all application features
+ * 
+ * HOW:
+ * - Uses Ant Design's Layout components with custom styling
+ * - Implements a collapsible sidebar for main navigation
+ * - Provides a fixed header with user profile and notifications
+ * - Manages state for sidebar collapse and settings drawer
+ * - Integrates with ThemeProvider for dark/light mode support
+ * - Applies custom styles through MainLayout.module.css for consistent theming
+ * 
+ * WHO:
+ * - Used by desktop users accessing the application
+ * - Referenced by the root layout for desktop viewport sizes
+ * - Maintained by frontend developers
+ * 
+ * WHEN:
+ * - Rendered when the application detects a desktop viewport
+ * - Active during desktop user sessions
+ * - State updates occur on user interactions (sidebar toggle, theme switch)
+ */
+
 import React, { useState } from 'react';
-import { Layout, Button, Menu, Badge, Avatar, Drawer, Breadcrumb, Typography } from 'antd';
+import { Layout, Button, Menu, Badge, Avatar, Drawer, Breadcrumb, Typography, Switch, MenuProps } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
 import Image from 'next/image';
 import {
@@ -22,6 +58,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Nunito } from 'next/font/google';
 import styles from './MainLayout.module.css';
+import { useTheme } from '@/theme/ThemeProvider';
 
 const nunito = Nunito({ subsets: ['latin'], weight: ['700'] });
 
@@ -93,6 +130,7 @@ export default function MainLayout({ children, logoText = 'StellAntAI' }: MainLa
   const [collapsed, setCollapsed] = useState(false);
   const [drawerVisible, setDrawerVisible] = useState(false);
   const pathname = usePathname();
+  const { themeMode, toggleTheme } = useTheme();
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
@@ -210,6 +248,17 @@ export default function MainLayout({ children, logoText = 'StellAntAI' }: MainLa
             <h3 style={{ marginTop: '16px', marginBottom: '4px' }}>Stella Ant</h3>
             <p style={{ color: '#666' }}>stella.ant@stellantai.com</p>
             <p style={{ color: '#666', marginTop: '4px' }}>Administrator</p>
+          </div>
+          <div style={{ padding: '0 24px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+              <span>Dark Mode</span>
+              <Switch
+                checked={themeMode === 'dark'}
+                onChange={toggleTheme}
+                checkedChildren="🌙"
+                unCheckedChildren="☀️"
+              />
+            </div>
           </div>
         </div>
       </Drawer>

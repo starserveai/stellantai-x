@@ -1,0 +1,66 @@
+/**
+ * 5W Documentation Block for WebMainLayout CSS Module
+ * ==========================================
+ * 
+ * WHAT:
+ * - CSS module for web-specific layout styling
+ * - Defines responsive layout structure for desktop viewports
+ * - Implements flexible container system with header, main, and footer
+ * - Sets maximum widths and spacing optimized for desktop screens
+ * 
+ * WHY:
+ * - Ensures consistent layout presentation on desktop devices
+ * - Provides optimal spacing and dimensions for larger screens
+ * - Maintains responsive behavior within desktop constraints
+ * - Separates web-specific styles from tablet and mobile layouts
+ * 
+ * HOW:
+ * - Uses CSS Flexbox for layout structure
+ * - Implements CSS variables for theme consistency
+ * - Sets desktop-optimized max-widths (1200px)
+ * - Applies appropriate padding and margins for desktop viewing
+ * 
+ * WHO:
+ * - Used by WebMainLayout component for desktop layouts
+ * - Referenced by the web version of the application
+ * - Maintained by frontend developers
+ * 
+ * WHEN:
+ * - Applied when the application is viewed on desktop devices
+ * - Active during desktop viewport breakpoints (≥1024px)
+ * - Loaded with the WebMainLayout component
+ */
+
+.layoutContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: var(--header-bg);
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navigation {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 2rem;
+}
+
+.footer {
+  background-color: var(--footer-bg);
+  padding: 2rem;
+  margin-top: auto;
+}

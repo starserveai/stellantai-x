@@ -1,0 +1,16 @@
+{
+  "name": "StellantAI Static HTML",
+  "short_name": "StellantAI",
+  "description": "StellantAI Static HTML Version for Development Comparison",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "../icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

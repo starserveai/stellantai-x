@@ -5,7 +5,41 @@
 
 **StellantAI** is a prototype framework for building enterprise-level React applications, specifically designed for chat agents and AI-driven components. Built on top of [Ant Design X](https://github.com/ant-design/x), this template is intended for **rapid prototyping** of web applications and is not recommended for production use.
 
-This project integrates dynamic theme switching, Figma design token support, and AI-assisted React component generation to create flexible, scalable, and visually appealing enterprise-grade applications.
+This project integrates dynamic theme switching, Figma design token support, and AI-assisted React component generation to create flexible, scalable, and visually appealing enterprise-grade applications that are responsive across devices.
+
+---
+
+## SAI Core Architecture
+
+StellantAI follows the SAI Core project guidelines, a comprehensive architectural framework designed to create scalable, maintainable, and device-optimized applications.
+
+### What is SAI Core?
+SAI Core is an architectural pattern that emphasizes device-specific layouts, shared components, and design token integration. It provides a structured approach to building applications that can seamlessly adapt to different devices while maintaining consistent design and functionality.
+
+### Why SAI Core?
+- **Device Optimization**: Dedicated layouts for web, mobile, and tablet ensure optimal user experience across all devices
+- **Component Reusability**: Shared component architecture reduces code duplication and maintenance overhead
+- **Design System Integration**: Seamless integration with design tokens and Figma workflows
+- **Scalability**: Modular structure supports easy addition of new features and device-specific optimizations
+
+### When to Use SAI Core?
+- During initial project setup to establish a solid architectural foundation
+- When migrating existing projects to support multiple device types
+- For projects requiring tight integration between design systems and code
+- When building enterprise applications that need to scale across different platforms
+
+### Where is SAI Core Implemented?
+The SAI Core architecture is implemented throughout the project structure:
+- `/src/app/` - Device-specific layouts (web/, mobile/, tablet/)
+- `/src/components/` - Shared component library
+- `/src/designs/` - Design tokens and assets
+- `/src/theme/` - Theme configurations and customizations
+
+### Who Benefits from SAI Core?
+- **Developers**: Clear structure and separation of concerns
+- **Designers**: Direct integration with design systems and tokens
+- **Product Managers**: Easier feature planning across devices
+- **End Users**: Optimized experience for their specific device
 
 ---
 

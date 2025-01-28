@@ -1,3 +1,36 @@
+/**
+ * 5W Documentation Block for MainLayout CSS Module
+ * ==========================================
+ * 
+ * WHAT:
+ * - CSS module for main layout component styling
+ * - Defines menu and navigation styling rules
+ * - Implements consistent theme colors and spacing
+ * - Provides custom styling for Ant Design menu components
+ * 
+ * WHY:
+ * - Ensures consistent menu appearance across the application
+ * - Maintains brand color scheme in navigation
+ * - Provides clear visual hierarchy for navigation items
+ * - Enhances user experience with visual feedback
+ * 
+ * HOW:
+ * - Uses CSS modules for scoped styling
+ * - Implements custom color variables
+ * - Overrides Ant Design default styles
+ * - Uses global selectors for deep component styling
+ * 
+ * WHO:
+ * - Used by MainLayout component
+ * - Referenced by layout system
+ * - Maintained by frontend development team
+ * 
+ * WHEN:
+ * - Applied when main layout is rendered
+ * - Active during user navigation
+ * - Used for menu state management
+ */
+
 .mainMenu {
   margin-top: 8px;
   background-color: #0173CE !important;

@@ -1,0 +1,103 @@
+/**
+ * Responsive CSS file for static HTML pages
+ * Contains device-specific styles and breakpoints
+ */
+
+/* Mobile styles (< 768px) */
+@media (max-width: 767px) {
+  .layout-container {
+    font-size: 14px;
+  }
+
+  .header {
+    padding: 0.5rem;
+  }
+
+  .navigation {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .main {
+    padding: 1rem;
+  }
+
+  .footer {
+    padding: 1rem;
+  }
+
+  .dashboardContainer {
+    padding: 16px;
+  }
+
+  .dashboardContainer h1 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+}
+
+/* Tablet styles (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .layout-container {
+    font-size: 15px;
+  }
+
+  .header {
+    padding: 0.75rem;
+  }
+
+  .navigation {
+    max-width: 1024px;
+    padding: 0 1.5rem;
+  }
+
+  .main {
+    padding: 1.5rem;
+  }
+
+  .footer {
+    padding: 1.5rem;
+  }
+
+  .dashboardContainer {
+    padding: 20px;
+  }
+
+  .dashboardContainer h1 {
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+  }
+}
+
+/* Desktop styles (≥ 1024px) */
+@media (min-width: 1024px) {
+  .layout-container {
+    font-size: 16px;
+  }
+
+  .header {
+    padding: 1rem;
+  }
+
+  .navigation {
+    max-width: 1200px;
+    padding: 0 2rem;
+  }
+
+  .main {
+    padding: 2rem;
+  }
+
+  .footer {
+    padding: 2rem;
+  }
+
+  .dashboardContainer {
+    padding: 24px;
+  }
+
+  .dashboardContainer h1 {
+    font-size: 2rem;
+    margin-bottom: 24px;
+  }
+}

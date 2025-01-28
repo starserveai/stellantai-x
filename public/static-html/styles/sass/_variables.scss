@@ -1,0 +1,31 @@
+// SASS Variables
+// Contains all global variables for theming and layout
+
+// Colors
+$header-bg: #ffffff;
+$footer-bg: #f8f9fa;
+$heading-color: #2c3e50;
+
+// Spacing
+$spacing-base: 1rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+
+// Breakpoints
+$mobile-width: 768px;
+$tablet-width: 1024px;
+$desktop-width: 1200px;
+
+// Shadows
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+// Typography
+$font-size-base: 16px;
+$font-size-sm: 14px;
+$font-size-lg: 18px;
+$font-weight-normal: 400;
+$font-weight-bold: 600;
+$line-height-base: 1.5;
