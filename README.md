@@ -1,7 +1,7 @@
 
 # StellantAI
 
-![Project Preview](default-page.png)
+![Project Preview](stellantai-x-dash.jpg)
 
 **StellantAI** is a prototype framework for building enterprise-level React applications, specifically designed for chat agents and AI-driven components. Built on top of [Ant Design X](https://github.com/ant-design/x), this template is intended for **rapid prototyping** of web applications and is not recommended for production use.
 
