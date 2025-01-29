@@ -61,7 +61,7 @@ import { Nunito } from 'next/font/google';
 import styles from './MainLayout.module.css';
 import { useTheme } from '@/theme/ThemeProvider';
 
-const nunito = Nunito({ subsets: ['latin'], weight: ['700'] });
+const nunito = Nunito({ subsets: ['latin'], weight: ['600'] });
 
 
 const { Title } = Typography;
@@ -168,14 +168,12 @@ export default function MainLayout({ children }: MainLayoutProps) {
         }}
       >
         <div style={{ padding: '16px 0', height: '64px', display: 'flex', alignItems: 'center' }}>
-          <div style={{ display: 'flex', alignItems: 'center', height: '48px', paddingLeft: collapsed ? '28px' : '24px' }}>
+          <Link href="https://StellantAI.com" id="logo" style={{ display: 'flex', alignItems: 'center', height: '48px', paddingLeft: collapsed ? '28px' : '24px', textDecoration: 'none' }} target="_blank" rel="noopener noreferrer">
             <Image src="/icon.svg" alt="Stellant AI Logo" width={20} height={20} style={{ filter: 'brightness(0) invert(1)' }} />
-            {!collapsed && (
-              <span className={nunito.className} style={{ color: '#fff', marginLeft: '12px', fontSize: '18px', fontWeight: 700 }}>
-                Stellant AI
-              </span>
-            )}
-          </div>
+            <div className={styles.logo}>
+              <span className={`${styles.logoText} ${nunito.className}`}>Stellant AI</span>
+            </div>
+          </Link>
         </div>
         <Menu
           mode="inline"
