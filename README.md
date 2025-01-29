@@ -63,10 +63,11 @@ The SAI Core architecture is implemented throughout the project structure:
 
 - **Ant Design X Components**: Built-in enterprise-ready React components for rapid UI development.
 - **Dynamic Theme Switching**: Tailwind CSS and Ant Design themes integrated with design tokens from Figma for seamless light/dark mode transitions.
-- **Figma to Code Workflow**: Supports exporting design tokens from Figma to Tailwind CSS and generating React components using the [Anima AI Plugin](https://marketplace.visualstudio.com/items?itemName=AnimaApp.vscode-anima).
+- **Figma to Design Theme Workflow**: Supports exporting design tokens from Figma to a Design Tokens JSON file for use in CSS and theme files. 
+- **Design Theme to Code Workflow:  Use Anima and generate React components using the [Anima AI Plugin](https://marketplace.visualstudio.com/items?itemName=AnimaApp.vscode-anima).
 - **Next.js Integration**: Fully scaffolded with Next.js, offering server-side rendering (SSR) and static site generation (SSG) for scalable web apps.
-- **Modern Tech Stack**: Powered by Next.js, Tailwind CSS, and Ant Design, along with support for TypeScript.
-- **Beginner-Friendly**: Includes best practices for project organization and guides for new developers.
+- **Modern Tech Stack**: Powered by Next.js, Responsive Web, Ant Design, Ant Design X AI components, along with support for TypeScript.
+- **Beginner-Friendly**: Includes lots of docs and details for new developers.
 
 ---
 
@@ -76,10 +77,9 @@ The SAI Core architecture is implemented throughout the project structure:
 |-------------------|------------------------------------------------------------------------------|
 | **Next.js**       | React framework for building server-rendered web apps.                      |
 | **Ant Design X**  | Enterprise-ready React components with dynamic theming.                     |
-| **Tailwind CSS**  | Utility-first CSS framework for highly customizable designs.                |
 | **TypeScript**    | Strongly typed JavaScript for more robust development.                      |
 | **Figma**         | Design system integration with support for exporting design tokens.         |
-| **Anima Plugin**  | Generate React components and JSON design tokens directly from Figma.       |
+
 
 ---
 
@@ -152,33 +152,33 @@ Ensure you have the following installed:
 ## Design to Code Workflow
 
 1. **Create Designs in Figma**:
-   - Use Figma to design components and pages.
-   - Define design tokens for colors, typography, and spacing.
+   - Use Figma to design components and pages, or import existing designs.
+   - Define design tokens for colors, typography, device layouts, spacing.
 
-2. **Export Design Tokens**:
-   - Use a Figma plugin (e.g., [Figma Tokens](https://www.figma.com/community/plugin/843461159747178978)) to export tokens as JSON.
+2. **Import Figma Design Tokens**:
+   - Use a Figma plugin (e.g., [Variables2JSON](https://github.com/mark-nicepants/variables2json-docs)) to export figma design tokens as JSON, then use the `DesignTokens.json` file to import the design tokens into your project CSS file(s).
 
-3. **Integrate Tokens with Tailwind CSS**:
-   - Add design tokens to Tailwind CSS configuration for consistent styling.
+3. **Link Figma Designs to Development via API**
+   - Close the gap between deign and dev with a direct API link from Figma to your development team.  Changes made in the design tool show up in the StellantAI-X platform's design tokens and mainlayout CSS files.
 
 4. **Generate React Components**:
    - Use the [Anima AI Plugin](https://marketplace.visualstudio.com/items?itemName=AnimaApp.vscode-anima) to convert Figma designs into React components.
 
-5. **Integrate Components into StellantAI**:
-   - Import and style generated components using Tailwind CSS and Ant Design X.
+5. **Integrate JS/TS Components into StellantAI**:
+   - Import existing JS/TS Design components or add new components styled through Anima, manually or from reference libs.
 
 ---
 
 ## Theming and Customization
 
-StellantAI supports **dynamic theme switching** using Tailwind CSS and Ant Design X tokens.
+StellantAI supports **dynamic theme switching** using Ant Design's ConfigProvider theme management system (https://ant.design/docs/react/customize-theme) and design tokens. The `themeConfig.ts` file contains the base theme tokens, and the `DesignTokens.json` file is used to import design tokens from Figma.
 
 - **Light/Dark Modes**:
   - Easily switch between themes using the theme toggler built into the app.
 - **Customizing Tokens**:
   - Modify `themeConfig.ts` to update global design tokens such as `colorPrimary` or `fontSize`.
 
-Example snippet from `themeConfig.ts`:
+Example snippet for a design token from `themeConfig.ts`:
 ```typescript
 const theme: ThemeConfig = {
   token: {
