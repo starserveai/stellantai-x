@@ -19,7 +19,7 @@
  * HOW:
  * - Uses Ant Design components for enterprise-grade UI
  * - Implements @ant-design/plots for advanced visualizations
- * - Uses WebMainLayout for consistent desktop structure
+ * - Uses MainLayout.Tsx for consistent desktop structure
  * - Provides comprehensive data grid and table layouts
  * 
  * WHO:
@@ -32,12 +32,12 @@
  * - Displays real-time and historical data analytics
  * - Active during desktop user dashboard sessions
  */
-
 import React from 'react';
 import { Card, Row, Col, Table, Typography, Progress } from 'antd';
 import { ArrowUpOutlined } from '@ant-design/icons';
 import { Area } from '@ant-design/plots';
-import WebMainLayout from '@/components/layout/WebMainLayout';
+import MainLayout from '@/layouts/MainLayout';
+import DualAxisBarChart from '@/components/charts/component-chart-dual-axis-bar';
 import styles from './styles.module.css';
 
 const { Title, Text } = Typography;
@@ -85,7 +85,7 @@ const DashboardPage = () => {
   ];
 
   return (
-    <WebMainLayout>
+    <MainLayout>
       <div className="p-6">
         <Row gutter={[24, 24]}>
           <Col xs={24} sm={12} lg={6}>
@@ -148,6 +148,13 @@ const DashboardPage = () => {
             </Card>
           </Col>
 
+          {/* Dual Axis Bar Chart */}
+          <Col xs={24} lg={16}>
+            <Card title="Dual Axis Bar Chart" className={styles.chartCard}>
+              <DualAxisBarChart />
+            </Card>
+          </Col>
+
           {/* Income Overview */}
           <Col xs={24} lg={8}>
             <Card title="Income Overview" className={styles.chartCard}>
@@ -171,7 +178,7 @@ const DashboardPage = () => {
           </Col>
         </Row>
       </div>
-    </WebMainLayout>
+    </MainLayout>
   );
 };
 
