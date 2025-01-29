@@ -39,6 +39,7 @@
 import React, { useState } from 'react';
 import { Layout, Button, Menu, Badge, Avatar, Drawer, Breadcrumb, Typography, Switch, MenuProps } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
+const { Header, Sider, Content, Footer } = Layout;
 import Image from 'next/image';
 import {
   MenuFoldOutlined,
@@ -62,12 +63,11 @@ import { useTheme } from '@/theme/ThemeProvider';
 
 const nunito = Nunito({ subsets: ['latin'], weight: ['700'] });
 
-const { Header, Sider, Content, Footer } = Layout;
+
 const { Title } = Typography;
 
 interface MainLayoutProps {
   children: React.ReactNode;
-  logoText?: string;
 }
 
 const menuItems = [
@@ -126,7 +126,7 @@ const userMenuItems: MenuItem[] = [
   },
 ];
 
-export default function MainLayout({ children, logoText = 'StellAntAI' }: MainLayoutProps) {
+export default function MainLayout({ children }: MainLayoutProps) {
   const [collapsed, setCollapsed] = useState(false);
   const [drawerVisible, setDrawerVisible] = useState(false);
   const pathname = usePathname();
@@ -150,6 +150,10 @@ export default function MainLayout({ children, logoText = 'StellAntAI' }: MainLa
         trigger={null}
         collapsible
         collapsed={collapsed}
+        breakpoint="lg"
+        onBreakpoint={(broken) => {
+          setCollapsed(broken);
+        }}
         style={{
           overflow: 'auto',
           height: '100vh',
@@ -159,16 +163,16 @@ export default function MainLayout({ children, logoText = 'StellAntAI' }: MainLa
           bottom: 0,
           zIndex: 10,
           backgroundColor: '#0173CE',
-          boxShadow: '2px 0 8px rgba(0,0,0,0.15)',
+          boxShadow: '3px 0 5px rgba(0, 0, 0, 0.35)',
           borderTopRightRadius: '20px'
         }}
       >
         <div style={{ padding: '16px 0', height: '64px', display: 'flex', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', height: '48px', paddingLeft: collapsed ? '28px' : '24px' }}>
-            <Image src="/icon.svg" alt="StellAntAI Logo" width={20} height={20} style={{ filter: 'brightness(0) invert(1)' }} />
+            <Image src="/icon.svg" alt="Stellant AI Logo" width={20} height={20} style={{ filter: 'brightness(0) invert(1)' }} />
             {!collapsed && (
               <span className={nunito.className} style={{ color: '#fff', marginLeft: '12px', fontSize: '18px', fontWeight: 700 }}>
-                {logoText}
+                Stellant AI
               </span>
             )}
           </div>
@@ -191,12 +195,26 @@ export default function MainLayout({ children, logoText = 'StellAntAI' }: MainLa
       </Sider>
       <Layout style={{ marginLeft: collapsed ? 80 : 200, transition: 'all 0.2s' }}>
         <Header style={{ padding: 0, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <Button
-            type="text"
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={toggleCollapsed}
-            style={{ fontSize: '16px', width: 64, height: 64 }}
-          />
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Button
+              type="text"
+              icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+              onClick={toggleCollapsed}
+              style={{ fontSize: '16px', width: 64, height: 64 }}
+            />
+            <Breadcrumb
+              items={[
+                {
+                  href: '/',
+                  title: <HomeOutlined style={{ fontSize: 16 }} />,
+                },
+                {
+                  title: pathname.split('/')[1].charAt(0).toUpperCase() + pathname.split('/')[1].slice(1),
+                },
+              ]}
+              style={{ marginLeft: 16 }}
+            />
+          </div>
           <div style={{ display: 'flex', alignItems: 'center', marginRight: 24 }}>
             <Badge count={5} style={{ marginRight: 24 }}>
               <BellOutlined style={{ fontSize: 20 }} />
@@ -208,21 +226,8 @@ export default function MainLayout({ children, logoText = 'StellAntAI' }: MainLa
             />
           </div>
         </Header>
-        <div style={{ background: '#F5F5F5', padding: '16px 16px 0' }}>
-          <div style={{ background: '#fff', padding: '12px 24px', marginBottom: '16px', borderRadius: '8px', boxShadow: '0 1px 2px rgba(0,0,0,0.1)' }}>
-            <Breadcrumb
-              items={[
-                {
-                  href: '/',
-                  title: <HomeOutlined />,
-                },
-                {
-                  title: pathname.split('/')[1].charAt(0).toUpperCase() + pathname.split('/')[1].slice(1),
-                },
-              ]}
-            />
-          </div>
-          <Content style={{ margin: '0 0 24px', padding: 24, background: '#fff', minHeight: 280 }}>
+        <div style={{ background: '#F5F5F5', padding: 24 }}>
+          <Content style={{ background: '#fff', minHeight: 280, padding: 24, borderRadius: 8 }}>
             {children}
           </Content>
         </div>

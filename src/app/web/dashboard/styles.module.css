@@ -31,10 +31,37 @@
  * - Loaded with web dashboard components
  */
 
-.card {
+.statsCard {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
   transition: box-shadow 0.3s ease-in-out;
   border-radius: 8px;
+  padding: 20px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+}
+
+.statsCard h5.ant-typography {
+  padding: 8px 0;
+  margin: 0 !important;
+  color: #6B7280;
+  font-size: 14px;
+}
+
+.statsCard h3.ant-typography {
+  text-align: center;
+  margin: auto 0 !important;
+  padding: 12px 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.statsCard :global(.ant-typography-success) {
+  padding: 8px 0;
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .card:hover {
@@ -49,6 +76,47 @@
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
+.statsCard {
+  padding: 20px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.statsCard h5.ant-typography {
+  margin-bottom: 12px !important;
+  color: #6B7280;
+  font-size: 14px;
+}
+
+.statsCard h3.ant-typography {
+  margin-bottom: 8px !important;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.chartCard {
+  composes: card;
+  padding: 24px;
+  margin-top: 24px;
+  background-color: #fff;
+}
+
+.chartCard :global(.ant-card-head) {
+  padding: 0 0 16px 0;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.chartCard :global(.ant-card-head-title) {
+  font-size: 16px;
+  font-weight: 600;
+}
+
 .breadcrumb a {
   color: #1890ff;
   text-decoration: none;
@@ -60,14 +128,30 @@
 
 .statsCard {
   composes: card;
-  padding: 24px;
+  padding: 10px 10px 5px 10px;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .statsCard :global(.ant-typography) {
+  margin: 0;
+  text-align: left;
+}
+
+.statsCard :global(.ant-typography):last-child {
+  margin-top: auto;
+  margin-bottom: 5px;
+}
+
+.statsCard h5 {
+  font-size: 0.875rem;
   margin-bottom: 8px;
+}
+
+.statsCard h3 {
+  font-size: 1.5rem;
+  margin: 0;
 }
 
 .statsCard :global(.ant-typography):last-child {

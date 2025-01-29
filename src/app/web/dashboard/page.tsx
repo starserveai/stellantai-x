@@ -37,7 +37,10 @@ import { Card, Row, Col, Table, Typography, Progress } from 'antd';
 import { ArrowUpOutlined } from '@ant-design/icons';
 import { Area } from '@ant-design/plots';
 import MainLayout from '@/layouts/MainLayout';
-import DualAxisBarChart from '@/components/charts/component-chart-dual-axis-bar';
+import dynamic from 'next/dynamic';
+
+// Dynamically import ApexCharts to avoid SSR issues
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 import styles from './styles.module.css';
 
 const { Title, Text } = Typography;
@@ -87,7 +90,7 @@ const DashboardPage = () => {
   return (
     <MainLayout>
       <div className="p-6">
-        <Row gutter={[24, 24]}>
+        <Row gutter={[24, 24]} className="mb-6">
           <Col xs={24} sm={12} lg={6}>
             <Card className={styles.statsCard}>
               <Title level={5}>Total Page Views</Title>
@@ -97,7 +100,6 @@ const DashboardPage = () => {
                   <ArrowUpOutlined /> 59.3%
                 </Text>
               </div>
-              <Text type="secondary">You made an extra 35,000 this year</Text>
             </Card>
           </Col>
           <Col xs={24} sm={12} lg={6}>
@@ -109,7 +111,6 @@ const DashboardPage = () => {
                   <ArrowUpOutlined /> 70.5%
                 </Text>
               </div>
-              <Text type="secondary">You made an extra 8,900 this year</Text>
             </Card>
           </Col>
           <Col xs={24} sm={12} lg={6}>
@@ -121,7 +122,6 @@ const DashboardPage = () => {
                   <ArrowUpOutlined /> 27.4%
                 </Text>
               </div>
-              <Text type="secondary">You made an extra 1,943 this year</Text>
             </Card>
           </Col>
           <Col xs={24} sm={12} lg={6}>
@@ -133,50 +133,34 @@ const DashboardPage = () => {
                   <ArrowUpOutlined /> 27.4%
                 </Text>
               </div>
-              <Text type="secondary">You made an extra $20,395 this year</Text>
-            </Card>
-          </Col>
-
-          {/* Visitor Analytics Chart */}
-          <Col xs={24} lg={16}>
-            <Card title="Unique Visitor" className={styles.chartCard}>
-              <Area
-                data={visitData}
-                xField="date"
-                yField="pageView"
-              />
-            </Card>
-          </Col>
-
-          {/* Dual Axis Bar Chart */}
-          <Col xs={24} lg={16}>
-            <Card title="Dual Axis Bar Chart" className={styles.chartCard}>
-              <DualAxisBarChart />
-            </Card>
-          </Col>
-
-          {/* Income Overview */}
-          <Col xs={24} lg={8}>
-            <Card title="Income Overview" className={styles.chartCard}>
-              <div className="mb-4">
-                <Text>This Week Statistics</Text>
-                <Title level={3}>$7,650</Title>
-              </div>
-              <Progress percent={75} status="active" />
-            </Card>
-          </Col>
-
-          {/* Recent Orders Table */}
-          <Col span={24}>
-            <Card title="Recent Orders" className={styles.tableCard}>
-              <Table
-                columns={columns}
-                dataSource={recentOrders}
-                pagination={false}
-              />
             </Card>
           </Col>
         </Row>
+
+        <Card title="Unit Orders By Month" className={styles.chartCard}>
+          <div style={{ width: '100%', height: '400px' }}>
+            <Chart
+              options={{
+                chart: {
+                  id: "basic-bar",
+                  toolbar: {
+                    show: true
+                  }
+                },
+                xaxis: {
+                  categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+                }
+              }}
+              series={[{
+                name: "series-1",
+                data: [30, 40, 45, 50, 49, 60, 70, 91]
+              }]}
+              type="bar"
+              width="100%"
+              height="100%"
+            />
+          </div>
+        </Card>
       </div>
     </MainLayout>
   );

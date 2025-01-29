@@ -2,6 +2,7 @@ import React from 'react';
 import { DualAxes } from '@ant-design/plots';
 
 const DualAxisBarChart = () => {
+  console.log('DualAxisBarChart rendering');
   // Sample data for the dual-axis chart
   const data1 = [
     { date: 'Mon', value: 30 },
@@ -12,6 +13,7 @@ const DualAxisBarChart = () => {
     { date: 'Sat', value: 60 },
     { date: 'Sun', value: 70 },
   ];
+  console.log('Data1:', data1);
 
   const data2 = [
     { date: 'Mon', count: 200 },
@@ -22,6 +24,7 @@ const DualAxisBarChart = () => {
     { date: 'Sat', count: 480 },
     { date: 'Sun', count: 520 },
   ];
+  console.log('Data2:', data2);
 
   const dualAxesConfig = {
     data: [data1, data2],
@@ -97,8 +100,8 @@ const DualAxisBarChart = () => {
   };
 
   return (
-    <div style={{ width: '100%', height: '400px', position: 'relative' }}>
-      <DualAxes {...dualAxesConfig} />
+    <div data-chart-source-type="Ant Design Charts" style={{ width: '100%', height: '100%', position: 'relative' }}>
+      <DualAxes {...dualAxesConfig} style={{ width: '100%', height: '100%' }} />
     </div>
   );
 };

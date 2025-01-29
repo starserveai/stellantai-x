@@ -67,43 +67,35 @@ const DashboardPage = () => {
         {/* Statistics Cards */}
         <div className={styles.statsGrid}>
           <Card className={styles.statsCard}>
-            <Title level={5}>Total Page Views</Title>
-            <div className="flex items-center justify-between">
-              <Title level={3}>4,42,236</Title>
-              <Text type="success" className="flex items-center">
-                <ArrowUpOutlined /> 59.3%
-              </Text>
-            </div>
+            <Title level={5} className={styles.statsTitle}>Total Page Views</Title>
+            <Title level={3} className={styles.statsValue}>4,42,236</Title>
+            <Text type="success" className={styles.statsPercentage}>
+              <ArrowUpOutlined /> 59.3%
+            </Text>
           </Card>
 
           <Card className={styles.statsCard}>
-            <Title level={5}>Total Users</Title>
-            <div className="flex items-center justify-between">
-              <Title level={3}>78,250</Title>
-              <Text type="success" className="flex items-center">
-                <ArrowUpOutlined /> 70.5%
-              </Text>
-            </div>
+            <Title level={5} className={styles.statsTitle}>Total Users</Title>
+            <Title level={3} className={styles.statsValue}>78,250</Title>
+            <Text type="success" className={styles.statsPercentage}>
+              <ArrowUpOutlined /> 70.5%
+            </Text>
           </Card>
 
           <Card className={styles.statsCard}>
-            <Title level={5}>Total Orders</Title>
-            <div className="flex items-center justify-between">
-              <Title level={3}>18,800</Title>
-              <Text type="success" className="flex items-center">
-                <ArrowUpOutlined /> 27.4%
-              </Text>
-            </div>
+            <Title level={5} className={styles.statsTitle}>Total Orders</Title>
+            <Title level={3} className={styles.statsValue}>18,800</Title>
+            <Text type="success" className={styles.statsPercentage}>
+              <ArrowUpOutlined /> 27.4%
+            </Text>
           </Card>
 
           <Card className={styles.statsCard}>
-            <Title level={5}>Total Sales</Title>
-            <div className="flex items-center justify-between">
-              <Title level={3}>$35,078</Title>
-              <Text type="success" className="flex items-center">
-                <ArrowUpOutlined /> 27.4%
-              </Text>
-            </div>
+            <Title level={5} className={styles.statsTitle}>Total Sales</Title>
+            <Title level={3} className={styles.statsValue}>$35,078</Title>
+            <Text type="success" className={styles.statsPercentage}>
+              <ArrowUpOutlined /> 27.4%
+            </Text>
           </Card>
         </div>
 

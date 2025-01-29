@@ -11,7 +11,7 @@
   bottom: 0;
   z-index: 10;
   background-color: #0173CE;
-  box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+  box-shadow: 5px 0 5px rgba(105, 105, 105, 0.4);
   border-top-right-radius: 20px;
 }
 

@@ -52,6 +52,33 @@
 .statsCard {
   composes: card;
   padding: 16px;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+}
+
+.statsCard :global(.ant-typography) {
+  margin: 0 !important;
+}
+
+.statsCard h5.ant-typography {
+  padding: 8px 0;
+  color: #6B7280;
+}
+
+.statsCard h3.ant-typography {
+  text-align: center;
+  margin: auto 0 !important;
+  padding: 12px 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.statsCard :global(.ant-typography-success) {
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .chartCard {
