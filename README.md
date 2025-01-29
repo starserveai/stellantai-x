@@ -1,4 +1,3 @@
-
 # StellantAI
 
 ![Project Template Preview](stellantai-x-dash.png)
@@ -206,6 +205,140 @@ For manual deployment, refer to [Next.js deployment documentation](https://nextj
 - **Ant Design X**: [Ant Design X Docs](https://ant.design/docs/react/introduce)
 - **Tailwind CSS**: [Tailwind Docs](https://tailwindcss.com/docs)
 - **Figma**: [Figma Learn](https://www.figma.com/resources/learn-design/)
+
+---
+
+
+# Frequently Asked Questions (FAQ)
+
+<details>
+<summary><strong>What is the purpose of the Stellant AI project and what problem does it solve for enterprises?</strong></summary>
+
+Stellant AI is a comprehensive development framework designed to solve the challenges enterprises face when building modern AI applications across multiple platforms and devices. It provides a unified development approach that addresses three key areas:
+
+1. **Cross-Device Development**: Enables seamless development for web, mobile, and tablet interfaces through device-specific layouts and shared components, ensuring consistent user experience across all platforms.
+
+2. **Cross-Framework Integration**: Supports multiple frontend frameworks (React, Next.js, Vue) while maintaining consistent design patterns and code organization, allowing teams to use their preferred tools while ensuring project cohesion.
+
+3. **Cross-Deployment Solutions**: Provides standardized deployment configurations for various platforms (Vercel, Expo, static servers), simplifying the process of deploying AI applications across different hosting environments.
+
+By providing this unified framework, Stellant AI significantly reduces development complexity, improves code reusability, and accelerates the delivery of enterprise AI applications while maintaining high quality and consistency across all platforms.
+</details>
+
+<details>
+<summary><strong>How do I implement device-specific layouts while maintaining code consistency?</strong></summary>
+
+The project uses a device detection utility (`deviceDetection.ts`) combined with specific layout components for each device type. Create separate components in `/app/mobile/`, `/app/tablet/`, and `/app/web/` directories, then use the device detection utility to render the appropriate layout.
+</details>
+
+<details>
+<summary><strong>What's the recommended way to implement custom themes?</strong></summary>
+
+Use the `ThemeProvider` context and define custom themes in `DesignTokens.json`. Implement theme switching through the `useTheme` hook and store user preferences in localStorage for persistence.
+</details>
+
+<details>
+<summary><strong>How can I optimize the application's performance for different devices?</strong></summary>
+
+Utilize dynamic imports for code splitting, implement responsive images using Next.js Image component, and use device-specific breakpoints defined in CSS custom properties.
+</details>
+
+<details>
+<summary><strong>What's the best practice for managing global state in the application?</strong></summary>
+
+Combine React Query for server state management with Context API for UI state. Use the QueryClient provider at the app root and create specific contexts for features like theme and notifications.
+</details>
+
+<details>
+<summary><strong>How do I implement real-time notifications across different devices?</strong></summary>
+
+Use WebSocket connections for real-time updates, implementing the notification system through a Context provider that manages subscription and display logic across all device types.
+</details>
+
+<details>
+<summary><strong>What's the recommended approach for styling components?</strong></summary>
+
+Use CSS Modules for component-specific styles, combined with global variables from `DesignTokens.json`. Implement responsive designs using the predefined breakpoints in the theme system.
+</details>
+
+<details>
+<summary><strong>How can I extend the existing layout system for new features?</strong></summary>
+
+Extend the `MainLayout` component and use the existing responsive design patterns. Create new components in the appropriate device-specific directories and integrate them with the existing navigation system.
+</details>
+
+<details>
+<summary><strong>What's the process for implementing new dashboard widgets?</strong></summary>
+
+Create reusable components in the dashboard components directory, implement data fetching using React Query, and use the existing chart and visualization components as templates.
+</details>
+
+<details>
+<summary><strong>How do I handle authentication and user sessions across devices?</strong></summary>
+
+Implement authentication through the profile management system, storing tokens securely and managing session state through React Query and Context API.
+</details>
+
+<details>
+<summary><strong>What's the best way to implement custom navigation patterns?</strong></summary>
+
+Extend the existing navigation system using Next.js routing, implement new routes in the appropriate device-specific directories, and update the breadcrumb navigation accordingly.
+</details>
+
+<details>
+<summary><strong>How can I optimize resource loading for different network conditions?</strong></summary>
+
+Implement progressive loading using dynamic imports, optimize images using Next.js Image component, and use the resource management strategies outlined in the Performance Optimization section.
+</details>
+
+<details>
+<summary><strong>What's the recommended way to handle form state and validation?</strong></summary>
+
+Use form management libraries compatible with React, implement validation logic in custom hooks, and maintain form state locally unless it needs to be shared across components.
+</details>
+
+<details>
+<summary><strong>How do I create a new page for web or mobile devices?</strong></summary>
+
+Use the starter templates in `/public/static-html/` as a base. For web pages, create a new file in `/src/app/web/`, and for mobile pages in `/src/app/mobile/`. Implement the page component using the device-specific layout patterns and integrate it with the navigation system.
+</details>
+
+<details>
+<summary><strong>Is there a default page template I can use?</strong></summary>
+
+Yes, you can find starter templates in `/public/static-html/` directory. Use `dashboard-web.html`, `dashboard-mobile.html`, or `dashboard-tablet.html` as base templates. These include the basic layout structure and necessary imports for each device type.
+</details>
+
+<details>
+<summary><strong>How do I add charts or other components to a page?</strong></summary>
+
+Import and use existing chart components from `/src/components/charts/`. For data visualization, use React Query for data fetching and pass the data to the chart components. Example:
+```typescript
+import { LineChart } from '@/components/charts';
+const { data } = useQuery('chartData', fetchChartData);
+return <LineChart data={data} />;
+```
+</details>
+
+<details>
+<summary><strong>How can I integrate components from UI frameworks like Material UI or ShadCN?</strong></summary>
+
+Install the desired UI framework using npm/yarn, then use the project's theme system to maintain consistent styling. Example with Material UI:
+```typescript
+import { ThemeProvider as MUIThemeProvider } from '@mui/material';
+import { useTheme } from '@/theme/ThemeProvider';
+
+// Create a MUI theme that matches your app's theme
+const muiTheme = createTheme({
+  palette: {
+    primary: {
+      main: theme.colors.primary
+    }
+  }
+});
+```
+Wrap the components with the framework's provider and maintain consistency with the app's design tokens.
+</details>
 
 ---
 
