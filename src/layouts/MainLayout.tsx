@@ -182,13 +182,8 @@ export default function MainLayout({ children, logoText = 'StellAntAI' }: MainLa
             marginTop: '8px',
             backgroundColor: '#0173CE'
           }}
-          className="main-menu"
           theme="dark"
           selectedKeys={[pathname]}
-          items={menuItems.map(item => ({
-            ...item,
-            label: <Link href={item.key} style={{ color: 'inherit' }}>{item.label}</Link>,
-          }))}
           css={`
             .ant-menu-item-selected {
               background-color: rgba(255, 255, 255, 0.2) !important;
