@@ -37,7 +37,7 @@ import React from 'react';
 import { Card, Row, Col, Table, Typography, Progress } from 'antd';
 import { ArrowUpOutlined } from '@ant-design/icons';
 import { Area } from '@ant-design/plots';
-import MainLayout from '@/components/layout/MainLayout';
+import MainLayout from '@/layouts/MainLayout';
 
 const { Title, Text } = Typography;
 

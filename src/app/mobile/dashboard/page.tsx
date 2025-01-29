@@ -37,7 +37,7 @@ import React from 'react';
 import { Card, Typography, Progress, List } from 'antd';
 import { ArrowUpOutlined } from '@ant-design/icons';
 import { Area } from '@ant-design/plots';
-import MobileMainLayout from '@/components/layout/MobileMainLayout';
+import MainLayout from '@/layouts/MainLayout';
 import styles from './styles.module.css';
 
 const { Title, Text } = Typography;
@@ -62,7 +62,7 @@ const DashboardPage = () => {
   ];
 
   return (
-    <MobileMainLayout>
+    <MainLayout>
       <div className="p-4">
         {/* Statistics Cards */}
         <div className={styles.statsGrid}>
@@ -153,7 +153,7 @@ const DashboardPage = () => {
           />
         </Card>
       </div>
-    </MobileMainLayout>
+    </MainLayout>
   );
 };
 

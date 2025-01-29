@@ -174,24 +174,15 @@ export default function MainLayout({ children, logoText = 'StellAntAI' }: MainLa
           </div>
         </div>
         <Menu
-          theme="dark"
           mode="inline"
           selectedKeys={[pathname]}
-          className="main-menu"
           style={{
             marginTop: '8px',
-            backgroundColor: '#0173CE'
+            backgroundColor: '#0173CE',
+            color: '#fff'
           }}
           theme="dark"
-          selectedKeys={[pathname]}
-          css={`
-            .ant-menu-item-selected {
-              background-color: rgba(255, 255, 255, 0.2) !important;
-            }
-            .ant-menu-item:hover {
-              background-color: rgba(255, 255, 255, 0.1) !important;
-            }
-          `}
+          className={styles.mainMenu}
           items={menuItems.map(item => ({
             ...item,
             label: <Link href={item.key} style={{ color: 'inherit' }}>{item.label}</Link>,
