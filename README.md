@@ -64,7 +64,7 @@ The SAI Core architecture is implemented throughout the project structure:
 - **Ant Design X Components**: Built-in enterprise-ready React components for rapid UI development.
 - **Dynamic Theme Switching**: Tailwind CSS and Ant Design themes integrated with design tokens from Figma for seamless light/dark mode transitions.
 - **Figma to Design Theme Workflow**: Supports exporting design tokens from Figma to a Design Tokens JSON file for use in CSS and theme files. 
-- **Design Theme to Code Workflow:  Use Anima and generate React components using the [Anima AI Plugin](https://marketplace.visualstudio.com/items?itemName=AnimaApp.vscode-anima).
+- **Design Theme to Code Workflow**:  Use Anima and generate React components using the [Anima AI Plugin](https://marketplace.visualstudio.com/items?itemName=AnimaApp.vscode-anima).
 - **Next.js Integration**: Fully scaffolded with Next.js, offering server-side rendering (SSR) and static site generation (SSG) for scalable web apps.
 - **Modern Tech Stack**: Powered by Next.js, Responsive Web, Ant Design, Ant Design X AI components, along with support for TypeScript.
 - **Beginner-Friendly**: Includes lots of docs and details for new developers.
