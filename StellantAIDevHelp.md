@@ -276,3 +276,88 @@ const muiTheme = createTheme({
 ```
 Wrap the components with the framework's provider and maintain consistency with the app's design tokens.
 </details>
+
+
+<details>
+<summary><strong>Where can I get AI chat components that I can add to this project?</strong></summary>
+
+There are several sources for AI chat components that integrate well with StellantAI:
+
+1. **Ant Design X Chat Components**:
+   - Available directly through the Ant Design X library
+   - Pre-styled to match your project's theme
+   - Fully compatible with StellantAI's theming system
+
+2. **Community Components**:
+   - [Ant Design Pro Components](https://procomponents.ant.design/)
+   - [Ant Design Charts](https://charts.ant.design/)
+   - Various open-source React chat components
+
+3. **Custom Components**:
+   - Build using the `/src/components/` templates
+   - Utilize the project's theme system
+   - Integrate with your preferred AI backend
+
+To maintain consistency, it's recommended to start with Ant Design X components and customize them according to your needs using the project's theme tokens.
+</details>
+
+<details>
+<summary><strong>How do I add an AI chat component from Ant Design X to my project?</strong></summary>
+
+To integrate an Ant Design X chat component into your project, follow these steps:
+
+1. **Import the Component**:
+```typescript
+import { Chat } from '@ant-design/x';
+```
+
+2. **Add to Your Page**:
+```typescript
+const ChatPage = () => {
+  return (
+    <Chat
+      theme={useTheme()} // Uses project's theme system
+      messages={messages}
+      onSend={handleSend}
+      // Add other props as needed
+    />
+  );
+};
+```
+
+3. **Style Integration**:
+   - Use the project's theme tokens for consistent styling
+   - Override styles using the project's CSS modules if needed
+   - Maintain responsive design using the device-specific layouts
+
+4. **State Management**:
+   - Implement message handling using React Query or Context API
+   - Follow the project's state management patterns
+
+Example implementation in a device-specific layout:
+```typescript
+// src/app/web/chat.tsx
+import { Chat } from '@ant-design/x';
+import { useTheme } from '@/theme/ThemeProvider';
+
+export default function WebChat() {
+  const theme = useTheme();
+  const [messages, setMessages] = useState([]);
+
+  const handleSend = async (message) => {
+    // Implement your message handling logic
+  };
+
+  return (
+    <div className="chat-container">
+      <Chat
+        theme={theme}
+        messages={messages}
+        onSend={handleSend}
+        className="custom-chat"
+      />
+    </div>
+  );
+}
+```
+</details>
