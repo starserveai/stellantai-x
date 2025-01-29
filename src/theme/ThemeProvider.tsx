@@ -43,11 +43,15 @@ type ThemeMode = 'light' | 'dark';
 interface ThemeContextType {
   themeMode: ThemeMode;
   toggleTheme: () => void;
+  themeColor: string;
+  setThemeColor: (color: string) => void;
 }
 
-const ThemeContext = createContext<ThemeContextType>({ 
+const ThemeContext = createContext<ThemeContextType>({
   themeMode: 'light',
-  toggleTheme: () => {}
+  toggleTheme: () => {},
+  themeColor: '#0173CE',
+  setThemeColor: () => {}
 });
 
 export const useTheme = () => useContext(ThemeContext);
@@ -58,11 +62,16 @@ interface ThemeProviderProps {
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
   const [themeMode, setThemeMode] = useState<ThemeMode>('light');
+  const [themeColor, setThemeColor] = useState('#0173CE');
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as ThemeMode;
+    const savedColor = localStorage.getItem('themeColor');
     if (savedTheme) {
       setThemeMode(savedTheme);
+    }
+    if (savedColor) {
+      setThemeColor(savedColor);
     }
   }, []);
 
@@ -72,9 +81,23 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
     localStorage.setItem('theme', newTheme);
   };
 
+  const handleSetThemeColor = (color: string) => {
+    setThemeColor(color);
+    localStorage.setItem('themeColor', color);
+  };
+
+  const currentTheme = themeMode === 'light' ? lightTheme : darkTheme;
+  const themeWithColor = {
+    ...currentTheme,
+    token: {
+      ...currentTheme.token,
+      colorPrimary: themeColor,
+    },
+  };
+
   return (
-    <ThemeContext.Provider value={{ themeMode, toggleTheme }}>
-      <ConfigProvider theme={themeMode === 'light' ? lightTheme : darkTheme}>
+    <ThemeContext.Provider value={{ themeMode, toggleTheme, themeColor, setThemeColor: handleSetThemeColor }}>
+      <ConfigProvider theme={themeWithColor}>
         <XProvider>
           {children}
         </XProvider>

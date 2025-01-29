@@ -1,13 +1,30 @@
 
 # StellantAI
 
-![Project Preview](stellantai-x-dash.jpg)
+![Project Template Preview](stellantai-x-dash.png)
 
-**StellantAI** is a prototype framework for building enterprise-level React applications, specifically designed for chat agents and AI-driven components. Built on top of [Ant Design X](https://github.com/ant-design/x), this template is intended for **rapid prototyping** of web applications and is not recommended for production use.
+**StellantAI** is a template and framework for building enterprise-level React applications, specifically designed for chat agents and AI-driven components. Built on top of [Ant Design X](https://github.com/ant-design/x), this template is intended for **rapid prototyping** of web applications and is not recommended for production use.
 
 This project integrates dynamic theme switching, Figma design token support, and AI-assisted React component generation to create flexible, scalable, and visually appealing enterprise-grade applications that are responsive across devices.
 
 ---
+
+## Theme Viewing and Switching ##
+In order to provide consistent, quickly customizable theming across the application that can be sourced from your design system, this project template is designed to link to your central design theme for the project, or to your design tokens file, or from a Figma project URL. The goal is to  provide a fast and simple approach to creating customizable themes and layouts. 
+
+**Color Theme Design Tokens** are primarily sourced from two locations:
+
+1. The main theme configuration is defined in`/src/theme/themes.ts` which contains the base theme tokens
+   
+2. Design tokens can also be imported from`/src/designs/DesignTokens.json` which is meant to sync with design tokens exported from Figma.
+
+These files work together with the ThemeProvider component in`/src/theme/ThemeProvider.tsx` to provide consistent theming across the application. The design tokens include colors, typography, spacing, device layouts and other visual elements that can be customized globally or overridden at the component level.  
+
+**Typography Design Tokens** are sourced from the main theme configuration in`/src/theme/themes.ts` and are used to define the typography styles for the application. The typography tokens include font families, sizes, weights, and line heights that can be customized globally or overridden at the component level.
+
+**Spacing Design Tokens** are sourced from the main theme configuration in`/src/theme/themes.ts` and are used to define the spacing styles for the application. The spacing tokens include margins, paddings, and other spacing elements that can be customized globally or overridden at the component level. 
+
+![Theme and Design Tokens Viewer](StellantAI-themes.png)
 
 ## SAI Core Architecture
 

@@ -37,7 +37,8 @@
  */
 
 import React, { useState } from 'react';
-import { Layout, Button, Menu, Badge, Avatar, Drawer, Breadcrumb, Typography, Switch, MenuProps } from 'antd';
+import { Layout, Button, Menu, Badge, Avatar, Drawer, Breadcrumb, Typography, Switch, MenuProps, Row } from 'antd';
+import { useRouter } from 'next/navigation';
 import { EditOutlined } from '@ant-design/icons';
 const { Header, Sider, Content, Footer } = Layout;
 import Image from 'next/image';
@@ -95,6 +96,13 @@ const menuItems = [
     key: '/settings',
     icon: <SettingOutlined />,
     label: 'Settings',
+    children: [
+      {
+        key: '/settings/theme',
+        icon: <SettingOutlined />,
+        label: 'Theme Settings',
+      }
+    ]
   },
   {
     key: '/help',
@@ -131,6 +139,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
   const [drawerVisible, setDrawerVisible] = useState(false);
   const pathname = usePathname();
   const { themeMode, toggleTheme } = useTheme();
+  const router = useRouter();
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
@@ -162,8 +171,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
           top: 0,
           bottom: 0,
           zIndex: 10,
-          backgroundColor: '#0173CE',
-          boxShadow: '3px 0 5px rgba(0, 0, 0, 0.35)',
+          backgroundColor: themeMode === 'dark' ? '#001529' : '#0173CE',
+          boxShadow: themeMode === 'dark' ? '3px 0 5px rgba(255, 255, 255, 0.1)' : '3px 0 5px rgba(0, 0, 0, 0.35)',
           borderTopRightRadius: '20px'
         }}
       >
@@ -180,7 +189,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
           selectedKeys={[pathname]}
           style={{
             marginTop: '8px',
-            backgroundColor: '#0173CE',
+            backgroundColor: themeMode === 'dark' ? '#001529' : '#0173CE',
             color: '#fff'
           }}
           theme="dark"
@@ -192,7 +201,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
         />
       </Sider>
       <Layout style={{ marginLeft: collapsed ? 80 : 200, transition: 'all 0.2s' }}>
-        <Header style={{ padding: 0, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <Header style={{ padding: 0, background: themeMode === 'dark' ? '#141414' : '#fff', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <Button
               type="text"
@@ -224,13 +233,13 @@ export default function MainLayout({ children }: MainLayoutProps) {
             />
           </div>
         </Header>
-        <div style={{ background: '#F5F5F5', padding: 24 }}>
-          <Content style={{ background: '#fff', minHeight: 280, padding: 24, borderRadius: 8 }}>
+        <div style={{ background: themeMode === 'dark' ? '#000000' : '#F5F5F5', padding: 24 }}>
+          <Content style={{ background: themeMode === 'dark' ? '#141414' : '#fff', minHeight: 280, padding: 24, borderRadius: 8 }}>
             {children}
           </Content>
         </div>
         <Footer style={{ textAlign: 'center' }}>
-          StellantAI ©{new Date().getFullYear()} Created by StellAnt
+          StellantAI ©{new Date().getFullYear()} Created by <Link href="https://stellantai.com" target="_blank" rel="noopener noreferrer">Stellant AI</Link>
         </Footer>
       </Layout>
       <Drawer
@@ -250,11 +259,11 @@ export default function MainLayout({ children }: MainLayoutProps) {
               style={{ borderRadius: '50%' }}
             />
             <h3 style={{ marginTop: '16px', marginBottom: '4px' }}>Stella Ant</h3>
-            <p style={{ color: '#666' }}>stella.ant@stellantai.com</p>
-            <p style={{ color: '#666', marginTop: '4px' }}>Administrator</p>
+            <p style={{ color: themeMode === 'dark' ? '#A6A6A6' : '#666' }}>stella.ant@stellantai.com</p>
+            <p style={{ color: themeMode === 'dark' ? '#A6A6A6' : '#666', marginTop: '4px' }}>Administrator</p>
           </div>
           <div style={{ padding: '0 24px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
               <span>Dark Mode</span>
               <Switch
                 checked={themeMode === 'dark'}
@@ -262,6 +271,37 @@ export default function MainLayout({ children }: MainLayoutProps) {
                 checkedChildren="🌙"
                 unCheckedChildren="☀️"
               />
+            </div>
+            <div style={{ marginBottom: '24px' }}>
+              <span style={{ display: 'block', marginBottom: '12px' }}>Theme Colors</span>
+              <Row gutter={[8, 8]}>
+                {[
+                  { color: '#0173CE', label: 'Ocean Blue' },
+                  { color: '#FF4D4F', label: 'Ruby Red' },
+                  { color: '#FA8C16', label: 'Sunset Orange' },
+                  { color: '#FAAD14', label: 'Golden Yellow' },
+                  { color: '#13C2C2', label: 'Turquoise' },
+                  { color: '#52C41A', label: 'Forest Green' },
+                  { color: '#1890FF', label: 'Sky Blue' },
+                  { color: '#722ED1', label: 'Royal Purple' }
+                ].map((theme, index) => (
+                  <div
+                    key={index}
+                    onClick={() => router.push('/settings/theme')}
+                    style={{
+                      width: '24px',
+                      height: '24px',
+                      backgroundColor: theme.color,
+                      borderRadius: '4px',
+                      cursor: 'pointer',
+                      margin: '0 4px',
+                      transition: 'transform 0.2s',
+                      transform: 'scale(1)'
+                    }}
+                    title={theme.label}
+                  />
+                ))}
+              </Row>
             </div>
           </div>
         </div>
