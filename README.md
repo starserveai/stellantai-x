@@ -89,20 +89,29 @@ The project follows a modular and organized structure to facilitate ease of deve
 
 ```plaintext
 stellantai-x/
-├── public/                # Public assets like images, fonts, etc.
+├── core/                 # Core framework specifications and templates
+│   ├── deployments/      # Deployment configurations for different platforms
+│   ├── public/           # Static HTML templates and styles
+│   └── src/              # Core source code and components
+├── public/               # Public assets and static files
+│   ├── settings/         # Settings-related assets
+│   └── static-html/      # Static HTML templates for different devices
 ├── src/
-│   ├── app/               # Next.js application entry (routes/pages)
-│   │   ├── layout.tsx     # Layout component for global app structure
-│   │   ├── page.tsx       # Main page (homepage)
-│   ├── components/        # Shared React components
-│   ├── theme/             # Theme configurations (e.g., Tailwind + Ant Design tokens)
-│   │   └── themeConfig.ts # Centralized design tokens and theme customization
-│   ├── styles/            # Global styles (CSS, Tailwind configurations)
-│   ├── utils/             # Utility functions
-├── .gitignore             # Git ignored files
-├── README.md              # Project documentation
-├── package.json           # Project dependencies and scripts
-└── tsconfig.json          # TypeScript configuration
+│   ├── app/             # Next.js application entry (routes/pages)
+│   │   ├── dashboard/    # Dashboard-specific components and layouts
+│   │   ├── mobile/      # Mobile-specific layouts and components
+│   │   ├── tablet/      # Tablet-specific layouts and components
+│   │   └── web/         # Web-specific layouts and components
+│   ├── components/       # Shared React components
+│   │   └── charts/      # Chart and data visualization components
+│   ├── designs/         # Design tokens and Figma integration
+│   ├── layouts/         # Layout components and styles
+│   ├── theme/           # Theme configurations and providers
+│   └── utils/           # Utility functions and helpers
+├── .gitignore           # Git ignored files
+├── README.md            # Project documentation
+├── package.json         # Project dependencies and scripts
+└── tsconfig.json        # TypeScript configuration
 ```
 
 ---
