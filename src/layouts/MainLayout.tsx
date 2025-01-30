@@ -54,7 +54,8 @@ import {
   TeamOutlined,
   FileTextOutlined,
   QuestionCircleOutlined,
-  HomeOutlined
+  HomeOutlined,
+  AreaChartOutlined
 } from '@ant-design/icons';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -76,6 +77,11 @@ const menuItems = [
     key: '/web/dashboard',
     icon: <DashboardOutlined />,
     label: 'Dashboard',
+  },
+  {
+    key: '/web/analytics',
+    icon: <AreaChartOutlined />,
+    label: 'Analytics',
   },
   {
     key: '/projects',
